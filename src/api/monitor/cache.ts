@@ -1,5 +1,5 @@
-import service from '@/utils/request'
+import service from '@/utils/request';
 
 export const useCacheInfoApi = () => {
-	return service.get('/monitor/cache/info')
-}
+  return service.get('/monitor/cache/info');
+};

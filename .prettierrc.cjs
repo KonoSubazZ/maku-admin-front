@@ -5,9 +5,9 @@ module.exports = {
 	// 制表符宽度
 	tabWidth: 2,
 	// 使用制表符缩进
-	useTabs: true,
+	useTabs: false,
 	// 句尾不使用分号
-	semi: false,
+	semi: true,
 	// 使用单引号
 	singleQuote: true,
 	// 在 JSX 文件中使用单引号代替双引号

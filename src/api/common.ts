@@ -1,7 +1,7 @@
-import service from '@/utils/request'
+import service from '@/utils/request';
 
 export const useDataApi = async (url: string) => {
-	const { data } = await service.get(url)
+  const { data } = await service.get(url);
 
-	return data
-}
+  return data;
+};

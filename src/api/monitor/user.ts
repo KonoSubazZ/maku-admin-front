@@ -1,5 +1,5 @@
-import service from '@/utils/request'
+import service from '@/utils/request';
 
 export const useMonitorUserLogoutApi = (accessToken: string) => {
-	return service.delete('/monitor/user/' + accessToken)
-}
+  return service.delete('/monitor/user/' + accessToken);
+};
