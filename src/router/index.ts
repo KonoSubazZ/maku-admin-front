@@ -198,6 +198,9 @@ router.beforeEach(async (to, from, next) => {
         const menuRoutes = await routerStore.getMenuRoutes();
 
         // 获取扁平化路由，将多级路由转换成一级路由
+        // NOTE: vue-router 三级路由，无法缓存，需要将多级路由转换成一级路由（拍平路由）
+        // 缓存路由是根据component name 来决定的，会出现多个 component name 相同的组件，导致缓存失效
+        // 所以format component name --> component name + path
         const keepAliveRoutes = getKeepAliveRoutes(menuRoutes, []);
 
         // 添加菜单路由
