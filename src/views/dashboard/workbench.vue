@@ -81,6 +81,7 @@ import * as echarts from 'echarts';
 
 const userStore = useUserStore();
 
+// NOTE: vue-use实现数据动态滚动 且必须按照这样的形式写
 const source = ref(0);
 const outputValue = useTransition(source, {
   duration: 1500

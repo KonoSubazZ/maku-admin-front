@@ -1,17 +1,9 @@
 <template>
   <div class="org-container">
     <el-input v-model="orgName" clearable placeholder="请输入关键字过滤" />
-    <el-tree
-      ref="treeRef"
-      :data="orgList"
-      :expand-on-click-node="false"
-      :filter-node-method="filterNode"
-      :props="{ label: 'name', children: 'children' }"
-      highlight-current
-      node-key="id"
-      :current-node-key="currentNodeKey"
-      @node-click="handleNodeClick"
-    />
+    <el-tree ref="treeRef" :data="orgList" :expand-on-click-node="false" :filter-node-method="filterNode"
+      :props="{ label: 'name', children: 'children' }" highlight-current node-key="id"
+      :current-node-key="currentNodeKey" @node-click="handleNodeClick" />
   </div>
 </template>
 
@@ -20,6 +12,7 @@ import { ElTree } from 'element-plus';
 import { useOrgListApi } from '@/api/sys/orgs';
 import { onMounted, ref, watch } from 'vue';
 
+// NOTE:  const orgList = ref(); 此时orgList为undefined
 const orgList = ref();
 const orgName = ref();
 const treeRef = ref();
@@ -64,6 +57,7 @@ const handleNodeClick = (row: any) => {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+
   :deep(.el-tree) {
     margin-top: 20px;
   }
