@@ -91,7 +91,8 @@ export const useCrud = (options: IHooksOptions) => {
   // 多选
   const selectionChangeHandle = (selections: any[]) => {
     state.dataListSelections = selections;
-    state.dataListSelectionKeys = selections.map((item: any) => state.primaryKey && item[state.primaryKey]);
+    // return 主键值id 增加兼容 防止主键值为null 情况
+    state.dataListSelectionKeys = selections.map((item: any) => state.primaryKey && item[state.primaryKey]) || [];
   };
 
   // 排序
