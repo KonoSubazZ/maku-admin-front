@@ -22,6 +22,15 @@ const props = defineProps({
   }
 });
 
+// NOTE: defineModel 语法糖是以下的简写
+// const model = defineModel();
+// -----------
+// const props = defineProps(['modelValue']);
+// const emit = defineEmits(['update:modelValue']);
+// 使用 defineModel 返回一个ref ， model.value 相当于建立了与 modelValue的联系
+// 更改model.value 父组件的 v-model = 'foo' foo值也会改变 父组件更新。
+// -----------------
+// v-model="foo" 等价于 v-model:modelValue="foo" @update:modelValue="foo = $event"
 const model = defineModel<number | string>();
 
 const modelAsString = computed({
