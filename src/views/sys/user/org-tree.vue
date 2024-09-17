@@ -1,9 +1,17 @@
 <template>
   <div class="org-container">
     <el-input v-model="orgName" clearable placeholder="请输入关键字过滤" />
-    <el-tree ref="treeRef" :data="orgList" :expand-on-click-node="false" :filter-node-method="filterNode"
-      :props="{ label: 'name', children: 'children' }" highlight-current node-key="id"
-      :current-node-key="currentNodeKey" @node-click="handleNodeClick" />
+    <el-tree
+      ref="treeRef"
+      :data="orgList"
+      :expand-on-click-node="false"
+      :filter-node-method="filterNode"
+      :props="{ label: 'name', children: 'children' }"
+      highlight-current
+      node-key="id"
+      :current-node-key="currentNodeKey"
+      @node-click="handleNodeClick"
+    />
   </div>
 </template>
 
@@ -41,6 +49,7 @@ const filterNode = (name: string, data: any) => {
 
 const emits = defineEmits(['nodeClick']);
 // 处理点击事件
+// NOTE: 这里处理逻辑，如果点击的节点和当前选中的节点一致，则取消选中，否则选中当前节点 存疑？？
 const handleNodeClick = (row: any) => {
   if (currentNodeKey.value === row.id) {
     currentNodeKey.value = null;
